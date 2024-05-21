@@ -14,7 +14,7 @@ const InputError = require('../exceptions/InputError'); // Tambahkan impor Input
               origin: ['*'],
             },
             payload: {
-                maxBytes: 1000000, // Atur batas ukuran payload menjadi 1MB
+                maxBytes: 1000000,
                 output: 'data',
                 parse: true
             }
@@ -39,7 +39,6 @@ const InputError = require('../exceptions/InputError'); // Tambahkan impor Input
         }
 
         if (response.isBoom) {
-            // Tambahkan penanganan khusus untuk status kode 413
             if (response.output.statusCode === 413) {
                 const newResponse = h.response({
                     status: 'fail',
